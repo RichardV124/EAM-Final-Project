@@ -46,7 +46,6 @@ export class AppComponent {
 			state: 'active'
 		};
 		this.todoService.addTodo(this.nuevo);
-		this.countToDo();
 		message.value = '';
 	}
 
@@ -73,19 +72,6 @@ export class AppComponent {
 	}
 
 	/**
-   * Método que cuenta cuantos toDo faltan por completar
-   */
-	countToDo() {
-		// this.todoCount = 0;
-		/**this.toDoList.map((todo) => {
-			if (todo.state === 'active') {
-				this.todoCount++;
-			}
-		});
-		console.log('asjdaksj', this.todoCount);*/
-	}
-
-	/**
   * Método que edita el estado a un ToDo en la base de datos.
    * @param todo ToDo al que se le cambiará el estado.
    * @param status, el nuevo estado que se le asignara al ToDo
@@ -107,7 +93,6 @@ export class AppComponent {
 	public editMessageToDo(message: string, todo: ToDo) {
 		todo.message = message;
 		this.todoService.editMessageToDo(todo);
-		this.countToDo();
 	}
 
 	/**
@@ -119,7 +104,6 @@ export class AppComponent {
 		const valueState = value ? 'completed' : 'active';
 
 		this.todoService.changeStatusAll(valueState, this.listToDo$);
-		this.countToDo();
 	}
 
 	/**
@@ -136,7 +120,6 @@ export class AppComponent {
    */
 	public removeToDo(todo: ToDo) {
 		this.todoService.deleteTodo(todo);
-		this.countToDo();
 	}
 
 	public cambiarFiltro(filtro: string) {
