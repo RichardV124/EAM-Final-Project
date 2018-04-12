@@ -6,12 +6,12 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class TodoService {
 	// Variable de tipo observable para guardar la lista de ToDos
-	toDos$;
+	//toDos$;
 	// Nombre de la coleccion
 	nameCollection = 'toDo';
 
 	constructor(private db: AngularFirestore) {
-		this.toDos$ = db.collection(this.nameCollection).valueChanges();
+		//	this.toDos$ = db.collection<ToDo>(this.nameCollection).valueChanges();
 	}
 
 	/**
@@ -30,7 +30,7 @@ export class TodoService {
    * Método que lista todos los ToDo de la base de datos.
    */
 	getToDo(): Observable<ToDo[]> {
-		return this.toDos$;
+		return this.db.collection<ToDo>(this.nameCollection).valueChanges();
 	}
 
 	/**

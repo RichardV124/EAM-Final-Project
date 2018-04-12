@@ -22,8 +22,8 @@
       </tr>
   </table>
 
-  <div class="col-md-12 col-xs-12 col-lg-12" >
-      <p class="led">total registros {{ todoCount }}</p>
+  <div class="col-md-12 col-xs-12 col-lg-12" *ngIf="toDoList.length > 0">
+      <p class="led">{{ todoCount }} item left</p>
      <button class="btn btn-primary" (click)="cambiarFiltro('active')" >Active</button> 
      <button class="btn btn-primary" (click)="cambiarFiltro('completed')" >Completed</button> 
      <button class="btn btn-primary"(click)="cambiarFiltro('all')" >All</button> 

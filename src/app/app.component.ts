@@ -11,11 +11,17 @@ import { AngularFirestore } from 'angularfire2/firestore';
 	styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
-	title = 'app';
+	title = 'MVC ToDo Angular 5';
 
+	// Lista de tipo observable con los todo de la base de datos
 	listToDo$: ToDo[];
+	// Lista de todos
+	toDoList: ToDo[] = [];
+	// El todo a crear
 	nuevo: ToDo;
+	// campo de filtro para el pipe
 	campoFiltro = 'all';
+	// contador de los toDo activos
 	todoCount = 0;
 	checkTodos = false;
 
@@ -50,8 +56,12 @@ export class AppComponent {
 	getTodo() {
 		this.todoService.getToDo().subscribe((content) => {
 			this.listToDo$ = content;
+			this.toDoList = this.listToDo$.filter(
+				(todo) => todo.state === 'active' || todo.state === 'completed'
+			);
+			this.todoCount = this.toDoList.filter((todo) => todo.state === 'active').length;
 		});
-		this.countToDo();
+		// this.countToDo();
 	}
 
 	/**
@@ -66,13 +76,13 @@ export class AppComponent {
    * Método que cuenta cuantos toDo faltan por completar
    */
 	countToDo() {
-		/**	this.todoCount = 0;
-		this.listToDo$.map((todo) => {
+		// this.todoCount = 0;
+		/**this.toDoList.map((todo) => {
 			if (todo.state === 'active') {
 				this.todoCount++;
 			}
 		});
-		*/
+		console.log('asjdaksj', this.todoCount);*/
 	}
 
 	/**
