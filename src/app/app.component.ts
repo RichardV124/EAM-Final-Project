@@ -66,12 +66,12 @@ export class AppComponent {
    * Método que cuenta cuantos toDo faltan por completar
    */
 	countToDo() {
-			this.todoCount = 0;
+		/**	this.todoCount = 0;
 		this.listToDo$.map((todo) => {
 			if (todo.state === 'active') {
 				this.todoCount++;
 			}
-		});
+		});*//
 		
 	}
 
