@@ -71,7 +71,7 @@ export class AppComponent {
 			if (todo.state === 'active') {
 				this.todoCount++;
 			}
-		});*//
+		});*/
 		
 	}
 
