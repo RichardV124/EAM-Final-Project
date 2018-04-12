@@ -81,8 +81,13 @@ export class AppComponent {
 			if (todo.state === 'active') {
 				this.todoCount++;
 			}
+<<<<<<< HEAD
 		});
 		console.log('asjdaksj', this.todoCount);*/
+=======
+		});*/
+		
+>>>>>>> 32dd961722394d0b77cb7597a670678508128252
 	}
 
 	/**
